@@ -1,0 +1,22 @@
+table {
+  width: 100%;
+}
+.filtermain{
+
+	width: 100%;
+}
+.main{
+	float: left;
+	width: 100%;
+	padding: 5px;
+}
+.year{
+	float:left;
+	padding: 5px;
+	margin-left: 1020px;
+}
+.type{
+	float: left;
+	padding: 5px;
+	margin-left: 350px;
+}

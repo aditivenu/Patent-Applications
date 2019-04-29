@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public class PatentsController {
 	
     @RequestMapping("/patents")
-    //@CrossOrigin(origins = "http://localhost:4200")
-    //@CrossOrigin()
     
     public USPTOData patents(@RequestParam(value="rows", defaultValue="100", required=false) int rows,
     		                 @RequestParam(value="assignee", required=false) String assignee,
@@ -55,20 +53,11 @@ public class PatentsController {
 		USPTOData output = restTemplate.getForObject(
 				  "https://developer.uspto.gov/ibd-api/v1/patent/application?"+sb.toString(),USPTOData.class);
 		
-		//if op exists
-			//save op to database
-			//return op
-		//else 
-			//retrieve op from database
-			//return op
-		
 		return output;
     }
     
     
     @RequestMapping("/patents/bycompany")
-    //@CrossOrigin(origins = "http://localhost:4200")
-    //@CrossOrigin()
     
     public Company patentsbycompany() 
     {	
@@ -87,13 +76,6 @@ public class PatentsController {
     		USPTOData output1 = restTemplate1.getForObject(
     				    "https://developer.uspto.gov/ibd-api/v1/patent/application?assignee="+assignee,USPTOData.class);
     		
-    		//if op exists
-				//save op to database
-				//return op
-    		//else 
-				//retrieve op from database
-				//return op
-
     		c.companies.add(assignee);
 			c.numOfPatents.add(output1.response.numFound);
     		
@@ -105,8 +87,6 @@ public class PatentsController {
     
     
     @RequestMapping("/patents/search")
-    //@CrossOrigin(origins = "http://localhost:4200")
-    //@CrossOrigin()
     
     public Search patentssearch() 
     {	
@@ -125,14 +105,6 @@ public class PatentsController {
     		USPTOData output2 = restTemplate2.getForObject(
     				    "https://developer.uspto.gov/ibd-api/v1/patent/application?searchText="+str,USPTOData.class);
     		
-    		
-    		//if op exists
-				//save op to database
-				//return op
-    		//else 
-				//retrieve op from database
-				//return op
-
     		s.searchStr.add(str);
 			s.numOfPatents.add(output2.response.numFound);
     		
@@ -143,14 +115,3 @@ public class PatentsController {
 	
 }
 		
-//schedule downloading json data and storing in database every day
-//saving json data to database
-
-//error control
-//retrieving database data and sending in same format
-
-//filter table based on column
-
-//change date format
-
-//angular tour of heroes
